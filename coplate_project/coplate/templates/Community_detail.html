@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Required bootstrap -->
+    <title>Yonsei_Dongari_Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+
+    <style>
+
+
+        body{
+            background-image: url('/static/coplate/images/ver3.png');
+            background-repeat: no-repeat;
+            background-size : cover;
+
+            display : flex;
+            flex-direction: row;
+            text-align: center;
+            justify-content: center;
+        }
+
+        p {
+            margin: 30px;
+            padding: 0 110px;
+        }
+
+        #left {
+            width : 600px;
+            height: 1000px;
+            position: fixed;
+            left: 0%;
+            margin-left: 70px;
+            color: antiquewhite;
+        }
+
+
+        button{
+            border: 2px solid lightgrey;
+            width: 250px;
+            height: 80px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+
+        button.small {
+            width: 220px;
+            height: 75px;
+            margin-top: 20px;
+        }
+
+
+
+        #right {
+            width : 750px;
+            height: 1000px;
+            left : 0%;
+            margin-left: 570px;
+            position: fixed;
+        }
+
+        .right {
+            padding-top: 10px;
+        }
+    </style>
+</head>
+
+
+
+<body>
+<div id="left">
+    <div style="background-color: midnightblue; width: 500px; height: 1300px; padding-top: 1%; opacity: 92%">
+
+
+    <div class="prof_img">
+        <img src="https://blog.kakaocdn.net/dn/d9DBmO/btrShHIWImK/bd7vHKU1N0eUoLLE6ETBwK/img.png"
+             alt="Logo" width="300" height="300" class="d-inline-block align-text-top">
+    </div>
+
+
+
+        <div style="text-align : center; margin-top: 40px"><h3><b>연세 동아리인을 위한 포탈</b></h3></div>
+
+        <h1><b>Yonsei Dongari Portal</b></h1>
+
+        <!-- 사용자 정보 들어갈 부분!-->
+        <div style="color: lightgrey; padding-top: 10px"><h5><b>{{ user.department }}</b><br>{{ user.nickname }}</h5></div>
+        <div style="color: lightgrey; padding-top: 10px"><h3><b>{{ user.username }}</b> 님</h3></div>
+
+        <!-- logout 버튼 !-->
+        <a href = "{% url 'account_logout' %}">
+            <button type="button" class="btn btn-warning"><h5><b>로그아웃 (logout)</h5></b></button>
+        </a>
+        <a href ="{% url 'index' %}">
+            <button type="button" class="btn btn-outline-light"><h5><b>메인화면</h5></b></button>
+        </a>
+    </div>
+</div>
+
+<div id="right">
+    <div class="content text-start" style="background-color: white; width: 900px; height: 1300px; padding-top: 1px; opacity: 93%; max-width: 700px; margin: auto;">
+        <h1 class="text-center my-4">{{ notice.title }}</h1>
+        <span>
+            작성일: {{ notice.created_at|date:"Y-m-d H:i" }}<br>
+            수정일: {{ notice.updated_at|date:"Y-m-d H:i" }}
+        </span>
+        <div class="post-content my-4">
+            {{ notice.content|linebreaks }}
+            <a href="{% url 'community_update' notice.id %}" style="color: inherit">수정하기</a>
+            <a href="{% url 'community_delete' notice.id %}" style="color: inherit">삭제하기</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+{% extends "coplate_base/base.html" %}
+{% load widget_tweaks %}
+
+{% block header %}
+
+    {% if user.is_authenticated %}
+
+        <body>
+            <div id="left">
+                <div style="background-color: midnightblue; width: 500px; height: 1300px; padding-top: 1%; opacity: 92%">
+            
+                <div class="prof_img">
+                    <img src="https://blog.kakaocdn.net/dn/d9DBmO/btrShHIWImK/bd7vHKU1N0eUoLLE6ETBwK/img.png"
+                        alt="Logo" width="300" height="300" class="d-inline-block align-text-top">
+                </div>
+            
+                    <div style="text-align : center; margin-top: 40px"><h3><b>연세 동아리인을 위한 포탈</b></h3></div>
+            
+                    <h1><b>Yonsei Dongari Portal</b></h1>
+            
+                    <!-- 사용자 정보 들어갈 부분!-->
+                    <div style="color: lightgrey; padding-top: 10px"><h5><b>{{ user.department }}</b><br>{{ user.nickname }}</h5></div>
+                    <div style="color: lightgrey; padding-top: 10px"><h3><b>{{ user.username }}</b> 님</h3></div>
+            
+                    <!-- logout 버튼 !-->
+                    <a href = "{% url 'account_logout' %}">
+                        <button type="button" class="btn btn-warning"><h5><b>로그아웃 (logout)</h5></b></button>
+                    </a>
+            
+            
+                </div>
+            
+            
+            </div>
+            
+            
+            
+            
+            <!-- Service 부분 !-->
+            <div id="right">
+                <div style="background-color: white; width: 900px; height: 1300px; padding-top: 1px; opacity: 93%">
+            
+                    <div style="margin : 50px; padding-right: 100%">
+                        <div style="text-decoration: underline"><h1><b>SERVICE</b></h1></div>
+            
+            
+                        <!--공지사항 부분 !-->
+                        <div style="width: 720px; height: 100px; text-align: left; padding-top: 15px">
+                            <div class="card">
+                                <div class="card-header"><h4><b>Notice</b></h4></div>
+            
+                                    <div class="card-body">
+                                        {% for notice in notices %}
+                                        <ul class="list-group list-group-flush">
+                                            <b>
+                                                <a href="{% url 'post_detail' notice.id %}">
+                                                    {{ notice.title }}
+                                                </a>
+                                            </b> - {{notice.created_at|date:"Y-m-d"}}              
+                                        </ul>
+                                        {% endfor %}
+            
+                                        <div style="text-align: right">
+                                            <a href="{% url 'notice' %}" class="btn btn-primary">+</a>
+                                        </div>
+            
+                                    </div>
+                            </div>
+                        </div>
+            
+                        <!-- application 버튼
+                        <div style="padding-top: 70px">
+                            <button type="button" class="btn btn-outline-secondary btn-sm"><h4><b>Notice</b></h4></button>
+                        </div>
+                        !-->
+            
+            
+            
+                        <!--Application 부분 !-->
+                        <div style="padding-top: 140px; padding-left: 11px"><h4><b>Application</b></h4></div>
+            
+                        <!-- 동아리 가입!-->
+                        <div style="padding-left: 10px">
+                            <a href="{% url 'apply_club' %}">
+                                <button type="button" class="btn btn-outline-secondary btn-sm"><h4><b>동아리 가입</b></h4></button>
+                            </a>
+                        </div>
+            
+            
+                        <!-- 정기활동 신청!-->
+                        <div style="position: absolute; left: 319px; top: 384px">
+                            <a href="{% url 'apply_activity' %}">
+                                <button type="button" class="btn btn-outline-secondary btn-sm"><h4><b>정기활동 신청</b></h4></button>
+                            </a>
+                        </div>
+            
+            
+            
+            
+                        <!--Community 부분 !-->
+                        <div style="padding-top: 25px; padding-left: 11px"><h4><b>Community</b></h4></div>
+            
+                        <!-- 자유 게시판!-->
+                        <div style="padding-left: 10px">
+                            <a href="{% url 'community' %}">
+                                <button type="button" class="btn btn-outline-secondary btn-sm"><h4><b>자유 게시판</b></h4></button>
+                            </a>
+                        </div>
+            
+            
+            
+                        <!-- 홍보 게시판!-->
+                        <div style="position: absolute; left: 319px; top: 556px">
+                            <a href="{% url 'adboard' %}">
+                                <button type="button" class="btn btn-outline-secondary btn-sm"><h4><b>홍보 게시판</b></h4></button>
+                            </a>
+                        </div>
+            
+            
+                        <!-- 택시 게시판!-->
+                        <div style="position: absolute; left: 580px; top: 556px">
+                            <a href="{% url 'taxi' %}">
+                                <button type="button" class="btn btn-outline-secondary btn-sm"><h4><b>택시 게시판</b></h4></button>
+                            </a>
+                        </div>
+            
+                    </div>
+            
+                </div>
+            
+            
+            </div>
+            
+            
+            
+        </body>
+        
+    {% else %}
+        <body>
+            <div id="center">
+                <div style="background-color: midnightblue; width: 500px; height: 1300px; padding-top: 1%; opacity: 92%">
+            
+            
+                <div class="prof_img">
+                    <img src="https://blog.kakaocdn.net/dn/d9DBmO/btrShHIWImK/bd7vHKU1N0eUoLLE6ETBwK/img.png"
+                        alt="Logo" width="300" height="300" class="d-inline-block align-text-top">
+                </div>
+                
+                    <div style="text-align : center; margin-top: 40px"><h3><b>연세 동아리인을 위한 포탈</b></h3></div>
+            
+                    <h1><b>Yonsei Dongari Portal</b></h1>
+            
+                    <!-- Login 버튼 !-->
+                    <a href = "{% url 'account_login' %}"><button type="button" class="btn btn-warning"><h5><b>로그인 (Login)</h5></b></button></a>
+            
+                    <!-- Signup 버튼 !-->
+                    <a href = "{% url 'account_signup' %}"><button type="button" class="btn btn-outline-light"><h5><b>회원가입 (Signup)</h5></b></button></a>
+                </div>
+        </body>
+    {% endif %}
+{% endblock %}

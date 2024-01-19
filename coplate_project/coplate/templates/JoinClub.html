@@ -1,0 +1,282 @@
+{% comment %} {% load your_custom_tags %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="utf-8">
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Required bootstrap -->
+    <title>Yonsei_Dongari_Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <style>
+
+
+        body{
+            background-image: url('/static/coplate/images/ver3.png');
+            background-repeat: no-repeat;
+            background-size : cover;
+
+            display : flex;
+            flex-direction: row;
+            text-align: center;
+            justify-content: center;
+        }
+
+        p {
+            margin: 30px;
+            padding: 0 110px;
+        }
+
+        #left {
+            width : 600px;
+            height: 1000px;
+            position: fixed;
+            left: 0%;
+            margin-left: 70px;
+            color: antiquewhite;
+        }
+
+
+        button{
+            border: 2px solid lightgrey;
+            width: 250px;
+            height: 80px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+
+        button.small {
+            width: 220px;
+            height: 75px;
+            margin-top: 20px;
+        }
+
+
+
+        #right {
+            width : 750px;
+            height: 1000px;
+            left : 0%;
+            margin-left: 570px;
+            position: fixed;
+        }
+
+        .right {
+            padding-top: 10px;
+        }
+
+
+
+        button.right {
+            width: 450px;
+            height: 130px;
+            padding: 30px;
+            margin: 8px;
+        }
+
+        button {
+            display: inline-block; /* Ensure buttons are not hidden */
+            visibility: visible; /* Ensure buttons are not invisible */
+            background-color: #007bff; /* Bootstrap primary color */
+            color: white;
+            border-color: #007bff;
+            text-align: center;
+            vertical-align: middle;
+            padding: .375rem .75rem;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+    
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            border-color: #004085;
+        }
+
+
+    </style>
+
+
+
+</head>
+
+
+
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<div id="left">
+    <div style="background-color: midnightblue; width: 500px; height: 1300px; padding-top: 1%; opacity: 92%">
+
+
+    <div class="prof_img">
+        <img src="https://blog.kakaocdn.net/dn/d9DBmO/btrShHIWImK/bd7vHKU1N0eUoLLE6ETBwK/img.png"
+             alt="Logo" width="300" height="300" class="d-inline-block align-text-top">
+    </div>
+
+
+
+        <div style="text-align : center; margin-top: 40px"><h3><b>연세 동아리인을 위한 포탈</b></h3></div>
+
+        <h1><b>Yonsei Dongari Portal</b></h1>
+
+        <!-- 사용자 정보 들어갈 부분!-->
+        <div style="color: lightgrey; padding-top: 10px"><h5><b>{{ user.department }}</b><br>{{ user.nickname }}</h5></div>
+        <div style="color: lightgrey; padding-top: 10px"><h3><b>{{ user.username }}</b> 님</h3></div>
+
+        <!-- logout 버튼 !-->
+        <a href = "{% url 'account_logout' %}">
+            <button type="button" class="btn btn-warning"><h5><b>로그아웃 (logout)</h5></b></button>
+        </a>
+        <a href ="{% url 'index' %}">
+            <button type="button" class="btn btn-outline-light"><h5><b>메인화면</h5></b></button>
+        </a>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+<!-- Service 부분 !-->
+
+
+<div id="right">
+    <div style="background-color: white; width: 900px; height: 1300px; padding-top: 1px; opacity: 93%">
+
+        <div style="margin : 50px; padding-right: 100%">
+            <div style="position: fixed"><h1><b>동아리 가입</b></h1></div>
+        </div>
+
+        <div style="padding-top: 80px; padding-left: 40px; padding-right: 40px">
+
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+
+            <!-- 스날 !-->
+            <div class="accordion-item">
+                <h1 class="accordion-header"><b>
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    SNAL (중앙배드민턴동아리)
+                    </b></button>
+                </h1>
+
+                <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body" style="text-align: left">
+                        <b>[연세대학교 미래캠퍼스 중앙배드민턴동아리 스날]<br>
+                            정기활동은 매주 화요일/수요일 17시 ~ 19시 교내 스포츠센터 체육관에서 진행됩니다.<br><br>
+                            회비 : 40,000원(금사만원정)<br>
+                            기타 문의 : 회장 최한별(010-0000-0000)
+                        </b>
+                    </div>
+
+                    <div style="text-align: right; margin-right: 10px; margin-bottom: 10px;">
+                        {% for club in clubs %}
+                        <form action="{% url 'apply_club_a' %}" method='POST'>
+                            {% csrf_token %}
+                            <input type="hidden" name="user_name" value="{{ request.user.get_full_name }}">
+                            <input type="hidden" name="user_email" value="{{ request.user.email }}">
+                            <button type="submit">신청</button>
+                        </form>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 싸메 !-->
+            <div class="accordion-item">
+                <h2 class="accordion-header"><b>
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    싸커매니아 (소프트웨어학부 축구 소모임)
+                    </b></button>
+                </h2>
+
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body" style="text-align: left">
+                        <b>[연세대학교 미래캠퍼스 소프트웨어학부 축구 소모임]<br>
+                            정기활동은 매주 수요일 20시 ~ 22시 교내 운동장에서 진행됩니다.<br><br>
+                            회비 : 10,000원(금사만원정)<br>
+                            기타 문의 : 회장 박상욱(010-0000-0000)
+                        </b>
+                    </div>
+
+                    <div style="text-align: right; margin-right: 10px; margin-bottom: 10px;">
+                        <a href="#" class="btn btn-secondary">신청</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                        <b>ASC (중앙코딩동아리)</b>
+                    </button>
+                </h2>
+
+                <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body" style="text-align: left">
+                        <b>[연세대학교 미래캠퍼스 중앙코딩동아리 아스키]<br>
+                            매주 전공 세미나를 가집니다.<br><br>
+                            회비 : 25,000원(금사만원정)<br>
+                            기타 문의 : 회장 이주원(010-0000-0000)
+                        </b>
+                    </div>
+                    <div style="text-align: right; margin-right: 10px; margin-bottom: 10px;">
+                        <a href="#" class="btn btn-secondary">신청</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                        <b>매치포인트 (중앙테니스동아리)</b>
+                    </button>
+                </h2>
+
+                <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body" style="text-align: left">
+                        <b>[연세대학교 미래캠퍼스 중앙테니스동아리 매치포인트]<br>
+                            정기활동은 매주 화요일/목요일 17시 ~ 19시 교내 테니스장에서 진행됩니다.<br><br>
+                            회비 : 30,000원(금사만원정)<br>
+                            기타 문의 : 회장 주준경(010-0000-0000)
+                        </b>
+                    </div>
+                    <div style="text-align: right; margin-right: 10px; margin-bottom: 10px;">
+                        <a href="#" class="btn btn-secondary">신청</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+</body>
+</html>

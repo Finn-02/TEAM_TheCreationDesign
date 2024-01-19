@@ -1,0 +1,89 @@
+{% extends "coplate_base/base.html" %}
+{% load widget_tweaks %}
+
+
+{% block header %}
+
+<body>
+  <div id="left">
+      <div style="background-color: midnightblue; width: 500px; height: 1300px; padding-top: 1%; opacity: 92%">
+  
+        <div class="prof_img">
+            <img src="https://blog.kakaocdn.net/dn/d9DBmO/btrShHIWImK/bd7vHKU1N0eUoLLE6ETBwK/img.png"
+                alt="Logo" width="300" height="300" class="d-inline-block align-text-top">
+        </div>
+
+            <div style="text-align : center; margin-top: 40px"><h3><b>연세 동아리인을 위한 포탈</b></h3></div>
+    
+            <h1><b>Yonsei Dongari Portal</b></h1>
+    
+            <div style="text-align: center; padding-top: 25px; color: lightsteelblue"><h9>※ 기존 연세포털(https://portal.yonsei.ac.kr)의</h9></div>
+            <div style="text-align: center; padding-top: 2px; color: lightsteelblue"><h9>비밀번호로 로그인해 주십시오.</h9></div>
+    
+    
+            <div style="text-align: center; padding-top: 25px; color: yellow"><h10>이용 후 반드시 로그아웃 해주세요!</h10></div>
+            <div style="text-align: center; padding-top: 2px; color: yellow"><h10>Please be sure to log out after use.</h10></div>
+
+      </div>
+  
+  </div>
+  
+  
+  <!-- 로그인 부분-->
+  <div id="right">
+      <div style="background-color: white; width: 900px; height: 1300px; padding-top: 1px; opacity: 93%">
+  
+          <div style="padding-top: 200px; width: 700px; height: 100px; margin-left: 90px">
+  
+              <div style="position: absolute; top: 80px; left: 200px"><h2><b>Welcome Yonsei Dongari Portal</b></h2></div>
+
+              <!-- 이름 !-->
+              <div style="width: 500px; margin-left: 100px">
+
+                <form method="post">
+                  {% csrf_token %}
+                  {% for error in form.non_field_errors %}
+                    <div class="form-error error-message">이메일 또는 비밀번호가 올바르지 않습니다.</div>
+                  {% endfor %}
+
+                  <div class="form-floating mb-3">
+                    {{ form.login|add_class:"form-control"|attr:"placeholder:이메일"|add_error_class:"error-message"|attr:"id=floatingInput"}}
+                    <label for="floatingInput">이메일</label>
+                    {% for error in form.login.errors %}
+                      <div class="form-error error-message">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    {{ form.password|add_class:"form-control"|attr:"placeholder:비밀번호"|add_error_class:"error-message"|attr:"id=floatingInput"}}
+                    <label for="floatingPassword">비밀번호</label>
+                    {% for error in form.password.errors %}
+                      <div class="form-error error-message">{{ error }}</div>
+                    {% endfor %}
+                  </div>
+
+                  <button class="cp-button" type="submit">로그인</button>
+
+                </form>
+                
+                <div class="info">
+                  <a class="item" href="{% url 'account_reset_password' %}">비밀번호 찾기</a>
+                  <a class="item" href="{% url 'account_signup' %}">회원가입</a>
+                </div>
+
+              </div>
+  
+          </div>
+  
+  
+  </div>
+  
+  
+  </body>
+    
+
+
+{% endblock %}
+
+
+

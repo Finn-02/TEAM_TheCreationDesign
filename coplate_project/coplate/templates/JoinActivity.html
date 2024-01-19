@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="utf-8">
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Required bootstrap -->
+    <title>Yonsei_Dongari_Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <style>
+
+
+        body{
+            background-image: url('/static/coplate/images/ver3.png');
+            background-repeat: no-repeat;
+            background-size : cover;
+
+            display : flex;
+            flex-direction: row;
+            text-align: center;
+            justify-content: center;
+        }
+
+        p {
+            margin: 30px;
+            padding: 0 110px;
+        }
+
+        #left {
+            width : 600px;
+            height: 1000px;
+            position: fixed;
+            left: 0%;
+            margin-left: 70px;
+            color: antiquewhite;
+        }
+
+
+        button{
+            border: 2px solid lightgrey;
+            width: 250px;
+            height: 80px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+
+        button.small {
+            width: 220px;
+            height: 75px;
+            margin-top: 20px;
+        }
+
+
+
+        #right {
+            width : 750px;
+            height: 1000px;
+            left : 0%;
+            margin-left: 570px;
+            position: fixed;
+        }
+
+        .right {
+            padding-top: 10px;
+        }
+
+
+
+        button.right {
+            width: 450px;
+            height: 130px;
+            padding: 30px;
+            margin: 8px;
+        }
+
+
+        table, th, td {border: 1px solid lightgrey; border-collapse: collapse; margin-left: 50px; margin-top: 110px ; }
+
+        td:hover{background-color: lightblue;}
+
+        th{font-weight: bold; height: 50px;}
+
+        td{text-align: left; vertical-align: text-top; width: 115px; height: 55px; padding: 10px; font-size: 12px}
+
+        .holiday{color: red;}
+
+        #today{font-weight: bold; background-color: bisque;}
+
+        .year{font-size: 10px; text-align: right}
+
+        .month{font-size: 10px; font-weight: bold; text-align: right}
+
+
+    </style>
+
+
+
+</head>
+
+
+
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<div id="left">
+    <div style="background-color: midnightblue; width: 500px; height: 1300px; padding-top: 1%; opacity: 92%">
+
+
+    <div class="prof_img">
+        <img src="https://blog.kakaocdn.net/dn/d9DBmO/btrShHIWImK/bd7vHKU1N0eUoLLE6ETBwK/img.png"
+             alt="Logo" width="300" height="300" class="d-inline-block align-text-top">
+    </div>
+
+
+
+        <div style="text-align : center; margin-top: 40px"><h3><b>연세 동아리인을 위한 포탈</b></h3></div>
+
+        <h1><b>Yonsei Dongari Portal</b></h1>
+
+        <!-- 사용자 정보 들어갈 부분!-->
+        <div style="color: lightgrey; padding-top: 10px"><h5><b>{{ user.department }}</b><br>{{ user.nickname }}</h5></div>
+        <div style="color: lightgrey; padding-top: 10px"><h3><b>{{ user.username }}</b> 님</h3></div>
+
+        <!-- logout 버튼 !-->
+        <a href = "{% url 'account_logout' %}">
+            <button type="button" class="btn btn-warning"><h5><b>로그아웃 (logout)</h5></b></button>
+        </a>
+        <a href ="{% url 'index' %}">
+            <button type="button" class="btn btn-outline-light"><h5><b>메인화면</h5></b></button>
+        </a>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+<!-- Service 부분 !-->
+<div id="right">
+    <div style="background-color: white; width: 900px; height: 1300px; padding-top: 1px; opacity: 93%">
+
+        <div style="margin : 50px; padding-right: 100%">
+            <div style="text-decoration: underline; position: fixed"><h1><b>정기활동 신청</b></h1></div>
+        </div>
+
+        <div style="width: 320px; height: 80px; text-align: left; padding-top: 1px; margin-top: 110px; margin-left: 50px ">
+                <div class="card">
+                    <div class="card-header"><h4><b>Snal</b></h4></div>
+
+                        <div class="card-body">
+
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">화요일 20시
+                                    <div style="position: absolute; margin-left: 200px; bottom: 17% ">
+                                        <a href="#" class="btn btn-secondary">신청</a>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">수요일 20시
+
+                                    <div style="position: absolute; margin-left: 200px; top: 17% ">
+                                        <a href="#" class="btn btn-secondary">신청</a>
+                                    </div>
+                                </li>
+                            </ul>
+
+
+                        </div>
+                </div>
+            </div>
+
+
+
+
+
+        <table id=calendar>
+
+
+
+            <thead>
+
+                <th class="holiday">Sunday</th>
+
+                <th>Monday</th>
+
+                <th>Tuesday</th>
+
+                <th>Wednesday</th>
+
+                <th>Thursday</th>
+
+                <th>Friday</th>
+
+                <th>Saturday</th>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td></td>
+
+                    <td></td>
+
+                    <td></td>
+
+                    <td></td>
+
+                    <td></td>
+
+                    <td>1</td>
+
+                    <td>2</td>
+
+                </tr>
+
+                <tr>
+
+                    <td class="holiday">3</td>
+
+                    <td>4</td>
+
+                    <td>5</td>
+
+                    <td>6</td>
+
+                    <td>7</td>
+
+                    <td>8</td>
+
+                    <td>9</td>
+
+                </tr>
+
+                <tr>
+
+                    <td class="holiday">10</td>
+
+                    <td>11</td>
+
+                    <td>12</td>
+
+                    <td>13</td>
+
+                    <td>14</td>
+
+                    <td style="background-color: lightgrey">15 기말</td>
+
+                    <td style="background-color: lightgrey">16 기말</td>
+
+                </tr>
+
+                <tr>
+
+                    <td class="holiday" style="background-color: lightgrey">17</td>
+
+                    <td style="background-color: lightgrey">18 기말</td>
+
+                    <td style="background-color: lightgrey">19 기말</td>
+
+                    <td style="background-color: lightgrey">20 기말</td>
+
+                    <td style="background-color: lightgrey">21 기말</td>
+
+                    <td >22 겨울방학 시작</td>
+
+                    <td>23</td>
+
+                </tr>
+
+                <tr>
+
+                    <td class="holiday">24</td>
+
+                    <td class="holiday">25 성탄절</td>
+
+                    <td>26 겨울 계절제 수업 시작</td>
+
+                    <td>27</td>
+
+                    <td>28 성적제출 마감</td>
+
+                    <td>29</td>
+
+                    <td>30</td>
+
+                </tr>
+
+                <tr>
+
+                    <td class="holiday">31</td>
+
+                    <td></td>
+
+                    <td></td>
+
+                    <td></td>
+
+                    <td></td>
+
+                    <td></td>
+
+                    <td></td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+
+
+
+
+
+</div>
+
+
+
+</body>
+</html>
