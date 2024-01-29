@@ -44,6 +44,10 @@ Django라는 웹 프레임워크로 웹을 개발한다면 많은 동아리인�
 superuser 즉 관리자 계정으로 로그인하면 유저의 정보(데이터)를 확인할 수 있습니다.
 
 
+# 프로젝트 실행 방법
 
+1. 가상환경 실행
+2. python manage.py runserver 명령어 실행
+3. 끝
 
 remote location : https://github.com/Finn-02/TEAM_TheCreationDesign.git
